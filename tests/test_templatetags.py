@@ -462,7 +462,7 @@ class FieldTest(TestCase):
 
     def test_label(self):
         res = render_template_with_form('{% bootstrap_label "foobar" label_for="subject" %}')
-        self.assertEqual('<label for="subject">foobar</label>', res)
+        self.assertEqual('<label class="form-label" for="subject">foobar</label>', res)
 
     def test_attributes_consistency(self):
         form = TestForm()
