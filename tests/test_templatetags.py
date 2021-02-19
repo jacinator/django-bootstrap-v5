@@ -346,6 +346,10 @@ class FieldTest(TestCase):
         self.assertIn("form-text", help_text["class"], "The help text should have the class 'form-text'.")
         self.assertIn("text-muted", help_text["class"], "The help text should have the class 'text-muted'.")
 
+    def test_select_class(self):
+        res = render_form_field("select1")
+        self.assertIn('class="form-select"', res)
+
     def test_required_field(self):
         required_css_class = "bootstrap5-req"
         required_field = render_form_field("subject")

@@ -207,7 +207,7 @@ class FieldRenderer(BaseRenderer):
     """Default field renderer."""
 
     # These widgets will not be wrapped in a form-control class
-    WIDGETS_NO_FORM_CONTROL = (CheckboxInput, RadioSelect, CheckboxSelectMultiple, FileInput)
+    WIDGETS_NO_FORM_CONTROL = (CheckboxInput, RadioSelect, CheckboxSelectMultiple, Select)
 
     def __init__(self, field, *args, **kwargs):
         if not isinstance(field, BoundField):
@@ -283,8 +283,8 @@ class FieldRenderer(BaseRenderer):
             classes = add_css_class(classes, self.get_size_class())
         elif isinstance(widget, CheckboxInput):
             classes = add_css_class(classes, "form-check-input", prepend=True)
-        elif isinstance(widget, FileInput):
-            classes = add_css_class(classes, "form-control-file", prepend=True)
+        elif isinstance(widget, Select):
+            classes = add_css_class(classes, "form-select", prepend=True)
 
         if self.field.errors:
             if self.error_css_class:
