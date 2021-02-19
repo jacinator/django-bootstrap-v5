@@ -552,5 +552,10 @@ class InlineFieldRenderer(FieldRenderer):
     def get_field_class(self):
         return self.field_class
 
+    def get_form_group_class(self):
+        if self.form_group_class == FORM_GROUP_CLASS:
+            self.form_group_class = "col-auto"
+        return super().get_form_group_class()
+
     def get_label_class(self):
         return add_css_class(self.label_class, "visually-hidden")
