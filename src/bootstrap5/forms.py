@@ -6,7 +6,7 @@ from .exceptions import BootstrapError
 from .text import text_value
 from .utils import add_css_class, render_tag
 
-FORM_GROUP_CLASS = "form-group"
+FORM_GROUP_CLASS = "mb-3"
 
 
 def render_formset(formset, **kwargs):

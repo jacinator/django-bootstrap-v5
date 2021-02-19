@@ -15,6 +15,7 @@ from ..bootstrap import (
 )
 from ..components import render_alert
 from ..forms import (
+    FORM_GROUP_CLASS,
     render_button,
     render_field,
     render_field_and_label,
@@ -379,7 +380,7 @@ def bootstrap_field(*args, **kwargs):
         form_group_class
             CSS class of the ``div`` that wraps the field and label.
 
-            :default: ``'form-group'``
+            :default: ``'mb-3'``
 
         field_class
             CSS class of the ``div`` that wraps the field.
@@ -408,7 +409,7 @@ def bootstrap_field(*args, **kwargs):
             A list of field names that should not be rendered
 
         size
-            Controls the size of the rendered ``div.form-group`` through the use of CSS classes.
+            Controls the size of the rendered ``input.form-control`` through the use of CSS classes.
 
             One of the following values:
 
@@ -471,7 +472,7 @@ def bootstrap_field(*args, **kwargs):
             :default: ``'has-error'``. Can be changed :doc:`settings`
 
         required_css_class
-            CSS class used on the ``div.form-group`` to indicate a field is required
+            CSS class used on the ``div.mb-3`` to indicate a field is required
 
             :default: ``''``. Can be changed :doc:`settings`
 
@@ -680,7 +681,7 @@ class ButtonsNode(template.Node):
             buttons.append(bootstrap_button(reset, "reset"))
         buttons = " ".join(buttons) + self.nodelist.render(context)
         output_kwargs.update({"label": None, "field": buttons})
-        css_class = output_kwargs.pop("form_group_class", "form-group")
+        css_class = output_kwargs.pop("form_group_class", FORM_GROUP_CLASS)
         output = render_form_group(render_field_and_label(**output_kwargs), css_class=css_class)
         if self.asvar:
             context[self.asvar] = output

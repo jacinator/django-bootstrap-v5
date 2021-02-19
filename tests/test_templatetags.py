@@ -300,8 +300,8 @@ class FieldTest(TestCase):
         # strip out newlines and spaces around newlines
         res = "".join(line.strip() for line in res.split("\n"))
         res = BeautifulSoup(res, "html.parser")
-        form_group = self._select_one_element(res, ".form-group", "RadioSelect should be rendered inside a .form-group")
-        radio = self._select_one_element(form_group, ".radio", "There should be a .radio inside .form-group")
+        form_group = self._select_one_element(res, ".mb-3", "RadioSelect should be rendered inside a .mb-3")
+        radio = self._select_one_element(form_group, ".radio", "There should be a .radio inside .mb-3")
         self.assertIn("radio-success", radio["class"], "The radio select should have the class 'radio-success'")
         elements = radio.find_all("div", class_="form-check")
         self.assertIsNotNone(elements, "Radio should have at least one div with class 'form-check'")
@@ -328,9 +328,9 @@ class FieldTest(TestCase):
         # strip out newlines and spaces around newlines
         res = "".join(line.strip() for line in res.split("\n"))
         res = BeautifulSoup(res, "html.parser")
-        form_group = self._select_one_element(res, ".form-group", "Checkbox should be rendered inside a .form-group.")
+        form_group = self._select_one_element(res, ".mb-3", "Checkbox should be rendered inside a .mb-3.")
         form_check = self._select_one_element(
-            form_group, ".form-check", "There should be a .form-check inside .form-group"
+            form_group, ".form-check", "There should be a .form-check inside .mb-3"
         )
         checkbox = self._select_one_element(form_check, "input", "The checkbox should be inside the .form-check")
         self.assertIn("form-check-input", checkbox["class"], "The checkbox should have the class 'form-check-input'.")
@@ -413,17 +413,17 @@ class FieldTest(TestCase):
             "required, must be placed inside the input-group",
         )
         self._select_one_element(
-            res, ".form-group > .form-text", "The form-text message must be placed inside the form-group"
+            res, ".mb-3 > .form-text", "The form-text message must be placed inside the mb-3"
         )
         self.assertEqual(
-            len(res.select(".form-group > .invalid-feedback")),
+            len(res.select(".mb-3 > .invalid-feedback")),
             0,
-            "The invalid-feedback message must be placed inside the " "input-group and not inside the form-group",
+            "The invalid-feedback message must be placed inside the " "input-group and not inside the mb-3",
         )
         self.assertEqual(
             len(res.select(".input-group > .form-text")),
             0,
-            "The form-text message must be placed inside the form-group and " "not inside the input-group",
+            "The form-text message must be placed inside the mb-3 and " "not inside the input-group",
         )
 
     def test_size(self):
