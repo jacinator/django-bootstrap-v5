@@ -471,6 +471,8 @@ class FieldRenderer(BaseRenderer):
             label_class = self.horizontal_label_class
             label_class = add_css_class(label_class, "col-form-label")
         label_class = text_value(label_class)
+        if not label_class:
+            label_class = "form-label"
         if not self.show_label or self.show_label == "visually-hidden":
             label_class = add_css_class(label_class, "visually-hidden")
         return label_class

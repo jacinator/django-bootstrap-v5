@@ -279,7 +279,7 @@ class FieldTest(TestCase):
         self.assertIn('type="text"', res)
 
         expect = html_39x27(
-            '<label for="id_xss_field">'
+            '<label class="form-label" for="id_xss_field">'
             "XSS&quot; onmouseover=&quot;alert(&#x27;Hello, XSS&#x27;)&quot; foo=&quot;</label>"
         )
         self.assertIn(
