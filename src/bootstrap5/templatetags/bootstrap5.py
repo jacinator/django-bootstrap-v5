@@ -386,7 +386,9 @@ def bootstrap_field(*args, **kwargs):
             CSS class of the ``div`` that wraps the field.
 
         label_class
-            CSS class of the ``label`` element. Will always have ``control-label`` as the last CSS class.
+            CSS class of the ``label`` element.
+
+            :default: ``'form-label'``
 
         form_check_class
             CSS class of the ``div`` element wrapping the label and input when rendering checkboxes and radio buttons.
@@ -434,13 +436,15 @@ def bootstrap_field(*args, **kwargs):
             Text that should be prepended to the form field. Can also be an icon, e.g.
             ``'<span class="glyphicon glyphicon-calendar"></span>'``
 
-            See the `Bootstrap docs <http://getbootstrap.com/components/#input-groups-basic>` for more examples.
+            See the `Bootstrap docs <https://getbootstrap.com/docs/5.0/forms/input-group/#basic-example>`
+            for more examples.
 
         addon_after
             Text that should be appended to the form field. Can also be an icon, e.g.
             ``'<span class="glyphicon glyphicon-calendar"></span>'``
 
-            See the `Bootstrap docs <http://getbootstrap.com/components/#input-groups-basic>` for more examples.
+            See the `Bootstrap docs <https://getbootstrap.com/docs/5.0/forms/input-group/#basic-example>`
+            for more examples.
 
         addon_before_class
             Class used on the span when ``addon_before`` is used.
@@ -511,6 +515,8 @@ def bootstrap_label(*args, **kwargs):
 
         label_class
             The CSS class for the rendered ``<label>``
+
+            :default': ``'form-label'``
 
         label_title
             The value that will be in the ``title`` attribute of the rendered ``<label>``
